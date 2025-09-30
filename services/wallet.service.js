@@ -1,6 +1,6 @@
 const store = require('../storage/memory.store');
 const { getCurrentDate } = require('../utilities/dates.utils');
-const { getDailyEarnedPoints } = require('./points.service');
+const  {getDailyEarnedPoints}  = require('./points.service');
 
 function getCustomerBalance(customerId) {
   const transactions = store.getCustomerTransactions(customerId);
