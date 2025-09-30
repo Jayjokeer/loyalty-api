@@ -267,14 +267,8 @@ curl -s -X POST http://localhost:3000/earn \
 - **Timezone:** Africa/Lagos for daily cap calculation
 - **Idempotency:** SHA-256 hash of method+path+body+key
 
-## Limitations
 
-- In-memory storage (data lost on restart)
-- Single process (no horizontal scaling)
-- No persistence layer
-- Basic error handling
-
-## Future Enhancements (Bonus)
+## Future Enhancements
 
 - [ ] SQLite persistence
 - [ ] Unit tests
