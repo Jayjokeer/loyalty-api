@@ -1,8 +1,4 @@
-function getCurrentDate() {
-  const now = new Date();
-  const lagosDate = new Date(now.toLocaleString('en-US', { timeZone: TIMEZONE }));
-  return lagosDate.toISOString().split('T')[0];
-}
+const crypto = require("crypto");
 
 
 function generateId(prefix) {
@@ -27,49 +23,10 @@ function getDailyEarnedPoints(customerId, date) {
   return total;
 }
 
-function getCustomerBalance(customerId) {
-  let earned = 0;
-  let redeemed = 0;
 
-  for (const tx of transactions.values()) {
-    if (tx.customerId === customerId) {
-      earned += tx.points;
-    }
-  }
-
-  for (const redemption of redemptions.values()) {
-    if (redemption.customerId === customerId) {
-      redeemed += redemption.points;
-    }
-  }
-
-  return earned - redeemed;
-}
-
-function getLifetimeStats(customerId) {
-  let earned = 0;
-  let redeemed = 0;
-
-  for (const tx of transactions.values()) {
-    if (tx.customerId === customerId) {
-      earned += tx.points;
-    }
-  }
-
-  for (const redemption of redemptions.values()) {
-    if (redemption.customerId === customerId) {
-      redeemed += redemption.points;
-    }
-  }
-
-  return { earned, redeemed };
-}
 
 module.exports = {
-    getLifetimeStats,
-    getCustomerBalance,
     getDailyEarnedPoints,
     getIdempotencyKey,
     generateId,
-    getCurrentDate
 }

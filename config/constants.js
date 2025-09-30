@@ -1,0 +1,30 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
+module.exports = {
+  PORT: process.env.PORT || 3000,
+  
+  API_KEY: 'test_key',
+  
+  TIMEZONE: 'Africa/Lagos',
+  DAILY_CAP: 5000,
+  EARN_RATE: 100, 
+  CURRENCY: 'NGN',
+  
+  PREFIXES: {
+    CUSTOMER: 'cust',
+    TRANSACTION: 'tx',
+    REDEMPTION: 'red'
+  },
+  
+  ERRORS: {
+    UNAUTHORIZED: 'UNAUTHORIZED',
+    INVALID_REQUEST: 'INVALID_REQUEST',
+    INVALID_CURRENCY: 'INVALID_CURRENCY',
+    MISSING_IDEMPOTENCY_KEY: 'MISSING_IDEMPOTENCY_KEY',
+    CUSTOMER_NOT_FOUND: 'CUSTOMER_NOT_FOUND',
+    INSUFFICIENT_POINTS: 'INSUFFICIENT_POINTS',
+    NOT_FOUND: 'NOT_FOUND',
+    INTERNAL_ERROR: 'INTERNAL_ERROR'
+  }
+};
