@@ -1,7 +1,4 @@
-const dotenv = require('dotenv');
-dotenv.config();
-
-const API_KEY = process.env.API_KEY;
+const {API_KEY} = require("../config/constants");
 
 function authMiddleware(req, res, next) {
   const apiKey = req.headers['x-api-key'];
