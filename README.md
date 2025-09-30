@@ -29,6 +29,8 @@ npm run dev
 ```
 
 Server runs on `http://localhost:3000`
+### Postman URL 
+https://www.postman.com/dev-demons/workspace/loyalty-api/collection/26660523-ee50cb42-0ce6-4570-a9be-cda84a8c3b15?action=share&creator=26660523
 
 ## API Endpoints
 
