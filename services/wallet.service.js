@@ -1,7 +1,21 @@
 const store = require('../storage/memory.store');
-const { getCurrentDate } = require('../utilities/dates.utils');
-const  {getDailyEarnedPoints}  = require('./points.service');
+const { getCurrentDate, toTimezoneDate } = require('../utilities/dates.utils');
 
+
+function getDailyEarnedPoints(customerId, date) {
+  const transactions = store.getCustomerTransactions(customerId);
+  let total = 0;
+
+  for (const tx of transactions) {
+    console.log(tx)
+    const txDate = toTimezoneDate(tx.createdAt);
+    if (txDate === date) {
+      total += tx.points;
+    }
+  }
+
+  return total;
+}
 function getCustomerBalance(customerId) {
   const transactions = store.getCustomerTransactions(customerId);
   const redemptions = store.getCustomerRedemptions(customerId);
@@ -40,6 +54,7 @@ function getLifetimeStats(customerId) {
 
 function getWalletSummary(customerId) {
   const today = getCurrentDate();
+  console.log(getDailyEarnedPoints(customerId, today))
   const todayEarned = getDailyEarnedPoints(customerId, today);
   const balance = getCustomerBalance(customerId);
   const lifetime = getLifetimeStats(customerId);
